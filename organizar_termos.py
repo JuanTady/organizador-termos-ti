@@ -128,7 +128,7 @@ def organizar(base_dir: Path, executar_direto: bool = False):
 
     print(f"\nDiretório de trabalho: {base_dir}")
 
-    # Verifica se as pastas de origem existem
+    # Verifica se as pastas de origem existem, caso não exista da o retorno
     pastas_inexistentes = [p for p in origens.values() if not p.is_dir()]
     if pastas_inexistentes:
         print("\nERRO: Uma ou mais pastas de origem não foram encontradas:")
@@ -170,7 +170,7 @@ def organizar(base_dir: Path, executar_direto: bool = False):
                 )
                 continue
 
-            # Para entrega e devolução, exige o prefixo TR-
+            # Para entrega e devolução, exige o prefixo TR- (TR= termo
             if categoria in ("Entrega de ativos", "Devolução de ativos"):
                 if not arquivo.name.upper().startswith("TR-"):
                     pendentes.append(
@@ -288,3 +288,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#Tady
